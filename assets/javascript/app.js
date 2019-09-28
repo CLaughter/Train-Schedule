@@ -31,13 +31,7 @@ $(document).ready(function() {
     var email = $('#emailInput').val().trim();
     var age = $('#ageInput').val().trim();
     var comment = $('#commentInput').val().trim();
-  
-    var data = {
-      name: name,
-      email: email,
-      age: age,
-      comment: comment,
-    }
+
     database.ref('/data').push(data);
   });
 

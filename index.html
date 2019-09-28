@@ -16,6 +16,12 @@
   <!-- Moment.js Reference -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 
+  <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+      </style>
+
 </head>
 <body>
   <div class="container">
@@ -26,36 +32,52 @@
 
     <div class="row">
       <div class="col-lg-12">
-        <div class="panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">Current Train Schedule</h4>
-            <br>
-          </div>
+        <tr>
+          <td><h4 class="panel-title">Current Train Schedule</h4></td>
+        </tr>
+      </div>
+    </div>
 
-          </div class="panel-body">
+    <div>
+      <div class="col-lg-12">
+        <tr>
+          <th>Train Name</th>
+        </tr>
+      </div>
+    </div>
+
+          
+          <!-- </div class="panel-body">          
             <form role="form">
               <div class="form-group">
-                <label for="text">Name: </label>
+                <tr>
+                  <td>Train Name</td>
+                <label for="text">Train Name</label>
                 <input type="text" class="form-control"id="nameInput">
+                </tr>
               </div>
               <div class="form-group">
-                <label for="text">Email: </label>
+                <label for="text">Destination</label>
                 <input type="email" class="form-control"id="emailInput">
               </div>
               <div class="form-group">
-                  <label for="text">Age: </label>
+                  <label for="text">Frequency</label>
                   <input type="number" class="form-control"id="ageInput">
-                </div>
-                <div class="form-group">
-                  <label for="text">How Did You Learn About Us?</label>
-                  <textarea class="form-control" rows="5" id="commentInput"></textarea>
-                </div>
+              </div>
+              <div class="form-group">
+                <label for="text">Next Arrival</label>
+                <input type="number" class="form-control"id="ageInput">
+              </div>
+              <div class="form-group">
+                <label for="text">Minutes Away</label>
+                <input type="number" class="form-control"id="ageInput">
+              </div>
                 <button type="submit" class="btn btn-default" id="addUser">Submit</button>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="row"></div>  
       <div class="col-lg-12">
