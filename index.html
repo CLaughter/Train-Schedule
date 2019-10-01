@@ -29,42 +29,41 @@
         <span id="timeDate"></span>    
       </div>
 
-    <!-- Top Table -->
+    <!-- Top table -->
     <div class="row" style="border: 1px solid rgb(84, 138, 255); margin-top: 0; margin: 20px">
-      <div class="col-xs-4" class="col-cm-6" class="col-med-8" class="col-lg-12" class="col-xl-12">
+      <div class="col-lg-12">
 
-        <!--Train schedule-->
+        <!--Train schedule display-->
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h5 class="panel-title" style="background-color: rgb(84, 138, 255); padding: 5px; color: white">Current Train Schedule</h5>     
+              <h5 class="panel-title" style="background-color: rgb(84, 138, 255); padding: 5px; color: white">Current Train Schedule</h5> 
             </div>
-            <div class="panel-body" style="color: white">
-              <div id="train-list">
-                <table  class="table">
-                  <thead id="column-headings">
+                <table  class="table" id="trainInfo-table" style="color: black">
+                  <thead>
                     <tr>
-                      <td>Train Name</td>
-                      <td>Destination</td>
-                      <td>Frequency</td>
-                      <td>Next Arrival</td>
-                      <td>Minutes Away</td>
+                      <th scope="col"><b>Train Name</b></th>
+                      <th scope="col"><b>Destination</b></th>
+                      <th scope="col"><b>Frequency</b></th>
+                      <th scope="col"><b>Next Arrival</b></th>
+                      <th scope="col"><b>Minutes Away</b></th>
                     </tr>
                   </thead>
                   <tbody id="table-body"></tbody>
+                    <tr>
+                      <th scope="row" class="infoRow"></th>
+                    </tr>
                 </table>
-              </div>
-            </div>
           </div>
       </div>      
     </div>
 
-      <!--Bottom Table -->
-    <div class="wrapper2">
+      <!--Input section -->
+    <div class="wrapper">
       <div class="row" style="border: 1px solid rgb(84, 138, 255); margin: 20px">
-        <span class="col-xs-4" class="col-cm-6" class="col-med-8" class="col-lg-12" class="col-xl-12">
+        <span class="col-lg-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h5 class="panel-title" style="margin: 0 auto; padding: 5px; background-color: rgb(84, 138, 255); color: white">Add Train</h5>
+                <h5 class="panel-title" style="padding: 5px; background-color: rgb(84, 138, 255); color: white">Add Train</h5>
               </div>
               <div class="panel-body">
                 <form role="form" style="padding: 10px">
