@@ -9,11 +9,12 @@ var firebaseConfig = {
   measurementId: "G-0TQB95TTXY"
 };
 
+// Initialize
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 $(document).ready(function() {
-  console.log("Is this #*$%#! thing working?");
+  console.log("Is this thing working?");
   // var makeRow = function() {
   // $('#newRow').empty(); 
   //   $(newRow.appendTo('row'));
@@ -25,12 +26,12 @@ $(document).ready(function() {
     $('#timeDate').text(now);
    }, 30000);
 
-  $("#addUser").on('click', function(event) {
+  $("#addTrain").on('click', function(event) {
     event.preventDefault();
-    var name = $('#nameInput').val().trim();
-    var email = $('#emailInput').val().trim();
-    var age = $('#ageInput').val().trim();
-    var comment = $('#commentInput').val().trim();
+    var trainName = $('#trainName-input').val().trim();
+    var destination = $('#destination-input').val().trim();
+    var firstTime = $('firstTime-input').val().trim();
+    var frequency = $('#frequency-input').val().trim();
 
     database.ref('/data').push(data);
   });
