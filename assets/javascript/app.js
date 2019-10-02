@@ -23,30 +23,25 @@ var database = firebase.database();
    }, 30000);
 
   //  Grabs user input
-  $("#addTrain").on('click', function(event) {
+  $("#add-train").on('click', function(event) {
     event.preventDefault();
     var trainName = $('#trainName-input').val().trim();
     var destination = $('#destination-input').val().trim();
-    var firstTime = $('firstTime-input').val().trim();
-    var frequency = $('#frequency-input').val().trim();
+    var firstTime = $('#firstTime-input').val().trim();
+    var frequency = $('#arrival-input').val().trim();
 
-  // Creates local "temporary" object for holding employee data
+  // Creates local "temporary" object for holding schedule data
   var newTrain = {
     name: trainName,
     location: destination,
     time: firstTime,
-    interval: frequency
+    interval: frequency,
+    away: time
   };
 
   // Uploads train data to database
-  database.ref('/data').push(newTrain);
-
-  // Logs everything to console
-  console.log(newTrain.name);
-  console.log(newTrain.location);
-  console.log(newTrain.time);
-  console.log(newTrain.interval);
-
+  database.ref().push(newTrain);
+  
   alert("New Train added");
 
     // Clears text-boxes
@@ -74,6 +69,31 @@ var database = firebase.database();
     console.log(destination);
     console.log(firstTime);
     console.log(frequency);
+
+    // code to calculate frequency
+    // var someTimeAgo = moment("03:00").format("LT")
+    // var rightNow =moment()
+    // var timePassed = rightNow.diff(someTimeAgo)
+
+    // console.log(timePassed)
+
+    // var nextRun = timePassed % frequency
+
+    // console.log(newTrain.time);
+
+    
+      var firstTrain = moment("03:00").format("LT")
+      var frequency = '30'    
+      var currrentTime = '12:45'    
+      var difference = '2 hr 45 min -> 165 min'    
+      var timeRemaining = difference % frequency // -> 15    
+      var timeUntilNext = frequency - timeRemaining // -> 15    
+      var timeOfNextTrain = currentTime + timeUntilNext // -> 1:00);
+
+    console.log(timeOfNextTrain);
+    
+
+
   
     // Create the new row
     var newRow = $("<tr>").append(
@@ -82,7 +102,7 @@ var database = firebase.database();
       $("<td>").text(firstTime),
       $("<td>").text(frequency)
     );
-  
+      console.log(newRow);
     // Append the new row to the table
-    $("#trainInfo-table > tbody").append(newRow);
+    $("tbody").append(newRow);
   });

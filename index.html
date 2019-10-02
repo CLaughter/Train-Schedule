@@ -31,7 +31,7 @@
 
     <!-- Top table -->
     <div class="row" style="border: 1px solid rgb(84, 138, 255); margin-top: 0; margin: 20px">
-      <div class="col-lg-12">
+      <div class="col-lg-12" style="padding: 0">
 
         <!--Train schedule display-->
           <div class="panel panel-default">
@@ -49,9 +49,6 @@
                     </tr>
                   </thead>
                   <tbody id="table-body"></tbody>
-                    <tr>
-                      <th scope="row" class="infoRow"></th>
-                    </tr>
                 </table>
           </div>
       </div>      
@@ -60,7 +57,7 @@
       <!--Input section -->
     <div class="wrapper">
       <div class="row" style="border: 1px solid rgb(84, 138, 255); margin: 20px">
-        <span class="col-lg-12">
+        <span class="col-lg-12" style="padding: 0">
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h5 class="panel-title" style="padding: 5px; background-color: rgb(84, 138, 255); color: white">Add Train</h5>
@@ -76,14 +73,14 @@
                     <input type="text" class="form-control" id="destination-input">
                   </div>
                   <div class="form-group">
-                    <label for="text"><b>First Train Time (HH:mm - military time)</b></label>
+                    <label for="text"><b>First Train Time (military time - HH:mm - AM/PM)</b></label>
                     <input type="time" class="form-control" id="firstTime-input">
                   </div>
                   <div class="form-group">
                     <label for="text"><b>Frequency (min)</b></label>
                     <input type="number" class="form-control" id="arrival-input">
                   </div>
-                    <button class="btn btn-primary" type="submit" id="add-train">Submit</button>
+                    <button class="btn btn-primary" type="button" id="add-train">Submit</button>
                 </form>
               </div>
             </div>
