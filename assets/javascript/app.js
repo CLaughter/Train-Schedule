@@ -69,18 +69,7 @@ database.ref().on("child_added", function(childSnapshot) {
   var firstTime = childSnapshot.val().time;
   var frequency = childSnapshot.val().interval;
 
-  // Train Info test
-  // console.log(trainName);
-  // console.log(destination);
-  // console.log(firstTime);
-  // console.log(frequency);
-
    // Calculate Arrival Time
-  //  function nextTrain() {  
-  // var someTimeAgo = moment().format("LT")
-  // var rightNow =moment()
-  // var timePassed = rightNow.diff(someTimeAgo)
-  // var nextRun = timePassed % frequency
     var firstTrain = moment(firstTime, 'HH:mm');
     console.log(firstTrain);
     var currentTime = moment();
