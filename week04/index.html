@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>Crystals Collector Game</title>
+
+	<!-- reset.css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+	<!-- getBootstrap link -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- style.css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!-- jQuery CDN link -->
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	crossorigin="anonymous"></script>
+	
+	<!-- should CDN not function, this defaults locally to full v3.4.1 -->
+	<script>
+	window.jQuery || document.write('<script src="jquery.js"><\/script')
+	</script> 
+	
+</head>
+<body>
+
+	<!-- Main Container -->
+	<div id="container">
+
+		<!-- Title -->
+		<div id="title">
+				Crystal Collection
+		</div>
+
+		<!-- Instructions -->
+		<div id="instructions">
+			<br>
+			<p>You will be given a random number at the start of the game.
+			<br>
+			There are 4 crystals below. By clicking on a crystal, you will add a specific amount of points to your total score. 
+			<br>
+			You will win the game by matching your total score to the random number. 
+			<br>
+			The value of each crystal is hidden from you until you click on it. 
+			<br>
+			Each time the game starts, a new value of each crystal will be assigned.
+		</p>
+	</div>
+
+		<!-- Random number -->
+		<div class="row">
+			<div class="col-sm-7">
+				<div id="randNum">
+					Random Number
+					<div id=num1>
+					</div>
+				</div>
+			</div>			
+	
+			<!-- User running total -->
+			<div class="col-sm-4">
+				<div id="sumTotal">
+					Cumulative Total
+					<div id=num2>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Crystals -->
+		<section class="images">	
+			<div class="row">
+				<div class='col-sm-2'>
+					<div class="card-body">
+						<button class="crystal" id="card-1" value="0"><img src="assets/images/blue.png">
+						</button>
+					</div>
+				</div>
+
+				<div class='col-sm-2'>
+					<div class="card-body">
+						<button class="crystal" id="card-2" value="0"><img src="assets/images/yellow.png">
+						</button>
+					</div>
+				</div>
+
+				<div class='col-sm-2'>
+					<div class="card-body">
+						<button class="crystal" id="card-3" value="0"><img src="assets/images/red.png">
+						</button>
+					</div>
+				</div>
+
+				<div class='col-sm-2'>
+					<div class="card-body">
+						<button class="crystal" id="card-4" value="0"><img src="assets/images/green.png">
+						</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Scoreboard -->
+		<div class=row>
+			<div class="col-sm-7" id="win">
+				<h4>Wins: </h4>
+			</div>
+
+			<div class="col-sm-5" id="loss">
+				<h4>Losses: </h4>
+			</div>
+		</div>
+
+	</div>
+
+  <section id="bottom">
+			<footer id="footer">
+					Copyright ©
+			</footer>
+		</section>
+				
+
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<!-- JS file source -->
+	<script src="assets/javascript/game.js"></script>
+
+</body>
+</html>
