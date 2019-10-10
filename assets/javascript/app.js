@@ -11,7 +11,7 @@ var firebaseConfig = {
 
 // Initialize
 firebase.initializeApp(firebaseConfig);
-var database = firebase.database();
+var trainData = firebase.database();
 
 // $(document).ready(function() {
 console.log("Is this thing working?");
@@ -22,77 +22,64 @@ setInterval(function(){
   $('#timeDate').text(now);
  }, 30000);
 
-//  Grabs user input
+//  Grabs user input and store in variables
 $("#add-train").on('click', function(event) {
   event.preventDefault();
-  var trainName = $('#trainName-input').val().trim();
-  var destination = $('#destination-input').val().trim();
-  var frequency = $('#frequency-input').val().trim();
-  var firstTime = $('#firstTime-input').val().trim();
+  var trainName = $("#trainName-input").val().trim();
+  var destination = $("#destination-input").val().trim();
+  var frequency = $("#frequency-input").val().trim();
+  // Turn firstTrain into a unit variable
+  var firstTrain = moment($("#firstTrain-input").val().trim(),"HH:mm").subtract(10,"years").format("X");
 
-    // require all field input
-    if(trainName !== '' || destination !== '' || firstTime !== '' || frequency !== '') {
-      alert("New Train added");
-    } else {
-      alert("Please fill out all information boxes");
-
-      return false;
-    }
+  // info entered in html is now added to firebase  
 
     // "temporary" object for schedule data
     var newTrain = {
       name: trainName,
       location: destination,
-      time: firstTime,
-      interval: frequency
+      time: firstTrain,
+      interval: frequency    
     }
 
   // Uploads train data to database
-  database.ref().push(newTrain)
+  trainData.ref().push(newTrain)
+
+    // require all field input
+    if(trainName !== '' || destination !== '' || firstTrain !== '' || frequency !== '') {
+      alert("New Train added");
+    } else {
+      alert("Please fill out all information boxes");
+      
+      return false;
+    }
 
   // Clears text-boxes
   $("#trainName-input").val("");
   $("#destination-input").val("");
-  $("#firstTime-input").val("");
+  $("#firstTrain-input").val("");
   $("#frequency-input").val("");
 
   return false;
 });
 
+// Now collect data from Firebase
 // Create Firebase event for adding train to database
-database.ref().on("child_added", function(childSnapshot) {
+trainData.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
-  // Store input into a variable
+  // Store input data from Firebase into variables
   var trainName = childSnapshot.val().name;
   var destination = childSnapshot.val().location;
-  var firstTime = childSnapshot.val().time;
+  var firstTrain = childSnapshot.val().time;
   var frequency = childSnapshot.val().interval;
 
-   // Calculate Arrival Time
-    var firstTrain = moment(firstTime, 'HH:mm');
-    console.log(firstTrain);
-    var currentTime = moment();
-    var difference = currentTime.diff(firstTrain, "minutes");
-    console.log(difference);
-    var timeRemaining = difference % frequency;
-    var minAway = (frequency - timeRemaining);
-    console.log(frequency);
-    console.log(timeRemaining);
-    var nextArrival = currentTime.add(minAway, "minutes");
+  var remainder = moment().diff(moment.unix(firstTrain), "minutes")%frequency;
+  var minutes = frequency - remainder;
+  var arrival = moment().add(minutes, "m").format("HH:mm A");
 
-    console.log(minAway);
-    console.log(nextArrival);
-  // }
+  console.log(remainder);
+  console.log(minutes);
+  console.log(arrival);
 
-  // Create the new row
-  var newRow = $("<tr>").append(
-    $("<td>").text(trainName),
-    $("<td>").text(destination),
-    $("<td>").text(frequency),
-    $("<td>").text(nextArrival),
-    $("<td>").text(minAway)
-  );
-  // Append the new row to trainInfo-table
-  $("tbody").append(newRow);
+  $("#trainInfo-table > tbody").append("<tr><td>")+trainName+("<tr><td>")+destination+("<tr><td>")+frequency+("<tr><td>")+arrival+("<tr><td>")+minutes+("<tr><td>");
 });
