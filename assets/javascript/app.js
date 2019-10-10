@@ -81,5 +81,15 @@ trainData.ref().on("child_added", function(childSnapshot) {
   console.log(minutes);
   console.log(arrival);
 
-  $("#trainInfo-table > tbody").append("<tr><td>")+trainName+("<tr><td>")+destination+("<tr><td>")+frequency+("<tr><td>")+arrival+("<tr><td>")+minutes+("<tr><td>");
+    // Create the new row
+    var newRow = $("<tr>").append(
+      $("<td>").text(trainName),
+      $("<td>").text(destination),
+      $("<td>").text(frequency),
+      $("<td>").text(arrival),
+      $("<td>").text(minutes)
+    );
+    // Append the new row to trainInfo-table
+    $("tbody").append(newRow);
+
 });
