@@ -1,3 +1,9 @@
-This train schedule lists the name of a given train, its destination,
-when it will arrive at the station, the first train time and 
-the frequency in minutes. It incorporates Firebase to store and retrieve the data as well as Moment.js to maintain up-to-date time.
+https://claughter.github.io/train-schedule/
+
+Moment.js is utilized to display current time format in the heading.
+
+User submits a train name, destination, the first train time and frequency.
+
+The train schedule will generate that information as well as the time of arrival and how many minutes away. 
+
+It incorporates Firebase to store and retrieve the data and Moment.js again to time generate intervals.
