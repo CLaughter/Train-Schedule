@@ -19,7 +19,7 @@ app.use(routes);
 // If deployed, use the deployed DB, otherwise use the local dbScrape DB
 const MONGODB_URI =
   process.env.MONGODB_URI ||
-  "mongodb://cll:lleVON001@ds263927.mlab.com:63927/heroku_h917fw99";
+  "mongodb://zeke:zeek1!@ds263927.mlab.com:63927/heroku_h917fw99";
 mongoose.set("useUnifiedTopology", true);
 
 // Connect to the Mongo DB
