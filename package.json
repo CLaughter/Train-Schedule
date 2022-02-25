@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^9.0.2",
+    "lodash.update": "^4.10.2",
+    "moment": "^2.29.1"
+  }
+}
